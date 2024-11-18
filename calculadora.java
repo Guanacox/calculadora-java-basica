@@ -13,7 +13,8 @@ public class calculadora {
             System.out.println("3. Multiplicación");
             System.out.println("4. División");
             System.out.println("5. Módulo");
-            System.out.println("5. Salir");
+            System.out.println("6. Potencia");
+            System.out.println("7. Salir");
             System.out.print("Elige una opción: ");
 
             int opcion = scanner.nextInt();
@@ -60,10 +61,26 @@ public class calculadora {
 
         scanner.close();
     }
+    
+    public static double obtenerNumeroValido(Scanner scanner) {
+        while (!scanner.hasNextDouble()) {
+            System.out.print("Valor no válido. Ingresa un número: ");
+            scanner.next(); // Limpiar la entrada no válida
+    }
+    return scanner.nextDouble();
+}
+    public static int obtenerOpcionValida(Scanner scanner) {
+        while (!scanner.hasNextInt()) {
+           System.out.print("Opción no válida. Intenta nuevamente: ");
+           scanner.next(); // Limpiar la entrada no válida
+    }
+    return scanner.nextInt();
+}
 
     public static double sumar(double a, double b) { return a + b; }
     public static double restar(double a, double b) { return a - b; }
     public static double multiplicar(double a, double b) { return a * b; }
     public static double dividir(double a, double b) { return a / b; }
     public static double modulo(double a, double b) { return a % b; }
+    public static double potencia(double a, double b) { return Math.pow(a, b);}
 }
